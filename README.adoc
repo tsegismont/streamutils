@@ -6,7 +6,7 @@ A set of utilities for Vert.x streams.
 
 == Purpose
 
-Provide tools for simple transformations of stream data (e.g. `map`, `filter`, `skip).
+Provide tools for simple transformations of stream data (e.g. `map`, `filter`, `skip`).
 
 For anything beyond simple transformations, consider using a https://www.reactive-streams.org/[Reactive Streams] implementation like https://github.com/ReactiveX/RxJava[RxJava].
 
