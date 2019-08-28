@@ -1,5 +1,7 @@
 = Vert.x Streams utilities
 
+[![Build Status](https://travis-ci.org/tsegismont/streamutils.svg?branch=master)](https://travis-ci.org/tsegismont/streamutils)
+
 A set of utilities for Vert.x streams.
 
 == Purpose
