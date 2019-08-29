@@ -1,4 +1,8 @@
 = Vert.x Streams utilities
+:group-id: io.github.tsegismont
+:artifact-id: streamutils
+:version: 1.0-SNAPSHOT
+:streams-class: io.github.tsegismont.streamutils.Streams
 
 image:https://travis-ci.org/tsegismont/streamutils.svg?branch=master["Build Status", link="https://travis-ci.org/tsegismont/streamutils"]
 
@@ -21,9 +25,55 @@ cd streamutils
 mvn clean install
 ----
 
+== Dependency setup
+
+=== Maven
+
+[source,xml,subs="attributes+"]
+----
+<dependency>
+  <group-id>{group-id}</group-id>
+  <artifact-id>{artifact-id}</artifact-id>
+  <version>{version}</version>
+</dependency>
+----
+
+=== Gradle Kotlin DSL
+
+[source,kotlin,subs="attributes+"]
+----
+implementation("{group-id}:{artifact-id}:{version}")
+----
+
+=== Gradle Groovy DSL:
+
+[source,groovy,subs="attributes+"]
+----
+implementation '{group-id}:{artifact-id}:{version}'
+----
+
 == Usage
 
-See the `io.github.tsegismont.streamutils.Streams` Javadoc.
+Import the `{streams-class}` class.
+
+Then use operators to transform streams.
+Here's an `io.vertx.core.file.AsyncFile` transformation example:
+
+[source,java]
+----
+// Splits file content into lines
+RecordParser parser = RecordParser.newDelimited("\n", asyncFile);
+// Transform line bytes to String
+ReadStream<String> lines = Streams.map(parser, Buffer::toString);
+// Get the line length
+ReadStream<Integer> sizes = Streams.map(lines, String::length);
+// Skip the first 50 lines
+ReadStream<Integer> skipped = Streams.skip(sizes, 50);
+// Limit result to 150 lines
+ReadStream<Integer> result = Streams.limit(skipped, 150);
+----
+
+For further details, please refer to the `{streams-class}` Javadoc.
 
 == License
 
