@@ -20,7 +20,7 @@ For now it's not on Maven Central so build it first before using:
 
 [source,shell]
 ----
-git clone https://github.com/tsegismont/streamutils
+git clone https://github.com/tsegismont/streamutils.git
 cd streamutils
 mvn clean install
 ----
