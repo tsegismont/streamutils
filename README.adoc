@@ -32,8 +32,8 @@ mvn clean install
 [source,xml,subs="attributes+"]
 ----
 <dependency>
-  <group-id>{group-id}</group-id>
-  <artifact-id>{artifact-id}</artifact-id>
+  <groupId>{group-id}</groupId>
+  <artifactId>{artifact-id}</artifactId>
   <version>{version}</version>
 </dependency>
 ----
