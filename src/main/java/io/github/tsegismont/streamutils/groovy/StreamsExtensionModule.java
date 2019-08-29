@@ -30,26 +30,44 @@ import java.util.function.Predicate;
  */
 public class StreamsExtensionModule {
 
+  /**
+   * @see Streams#map(ReadStream, Function)
+   */
   public static <T, R> ReadStream<R> map(ReadStream<T> self, Function<T, R> mapping) {
     return Streams.map(self, mapping);
   }
 
+  /**
+   * @see Streams#filter(ReadStream, Predicate)
+   */
   public static <T> ReadStream<T> filter(ReadStream<T> self, Predicate<T> predicate) {
     return Streams.filter(self, predicate);
   }
 
+  /**
+   * @see Streams#filter(ReadStream, Predicate, Vertx)
+   */
   public static <T> ReadStream<T> filter(ReadStream<T> self, Predicate<T> predicate, Vertx vertx) {
     return Streams.filter(self, predicate, vertx);
   }
 
+  /**
+   * @see Streams#filter(ReadStream, Predicate, Context)
+   */
   public static <T> ReadStream<T> filter(ReadStream<T> self, Predicate<T> predicate, Context context) {
     return Streams.filter(self, predicate, context);
   }
 
+  /**
+   * @see Streams#skip(ReadStream, long)
+   */
   public static <T> ReadStream<T> skip(ReadStream<T> self, long skip) {
     return Streams.skip(self, skip);
   }
 
+  /**
+   * @see Streams#limit(ReadStream, long)
+   */
   public static <T> ReadStream<T> limit(ReadStream<T> self, long limit) {
     return Streams.limit(self, limit);
   }

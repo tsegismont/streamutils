@@ -21,14 +21,35 @@ import io.vertx.core.Context
 import io.vertx.core.Vertx
 import io.vertx.core.streams.ReadStream
 
+/**
+ * @see Streams.map
+ */
 fun <T, R> ReadStream<T>.map(mapping: (input: T) -> R): ReadStream<R> = Streams.map(this, mapping)
 
+/**
+ * @see Streams.filter
+ */
 fun <T> ReadStream<T>.filter(predicate: (input: T) -> Boolean): ReadStream<T> = Streams.filter(this, predicate)
 
+/**
+ * Like [filter].
+ *
+ * If this method is invoked on a Vert.x thread, the items are emitted on this thread.
+ * Otherwise, the given `vertx` instance will provide a [Context] on which items are emitted.
+ */
 fun <T> ReadStream<T>.filter(predicate: (input: T) -> Boolean, vertx: Vertx): ReadStream<T> = Streams.filter(this, predicate, vertx)
 
+/**
+ * Like [filter] but uses the given `context` to emit items.
+ */
 fun <T> ReadStream<T>.filter(predicate: (input: T) -> Boolean, context: Context): ReadStream<T> = Streams.filter(this, predicate, context)
 
+/**
+ * @see Streams.skip
+ */
 fun <T> ReadStream<T>.skip(skip: Long): ReadStream<T> = Streams.skip(this, skip)
 
+/**
+ * @see Streams.limit
+ */
 fun <T> ReadStream<T>.limit(limit: Long): ReadStream<T> = Streams.limit(this, limit)
