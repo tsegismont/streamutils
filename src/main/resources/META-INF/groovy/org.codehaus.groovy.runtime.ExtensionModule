@@ -1,0 +1,3 @@
+moduleName=${groupId}:${artifactId}
+moduleVersion=${version}
+extensionClasses=io.github.tsegismont.streamutils.groovy.StreamsExtensionModule

@@ -54,6 +54,8 @@ implementation '{group-id}:{artifact-id}:{version}'
 
 == Usage
 
+=== Java
+
 Import the `{streams-class}` class.
 
 Then use operators to transform streams.
@@ -71,6 +73,27 @@ ReadStream<Integer> sizes = Streams.map(lines, String::length);
 ReadStream<Integer> skipped = Streams.skip(sizes, 50);
 // Limit result to 150 lines
 ReadStream<Integer> result = Streams.limit(skipped, 150);
+----
+
+=== Groovy
+
+This library comes with a Groovy extension module that adds operators to Vert.x streams.
+Here's an `io.vertx.core.file.AsyncFile` transformation example:
+
+[source,groovy]
+----
+// Splits file content into lines
+def parser = RecordParser.newDelimited("\n", asyncFile)
+
+def result = parser
+  // Transform line bytes to String
+  .map { Buffer buffer -> buffer.toString() }
+  // Get the line length
+  .map { String line -> line.length() }
+  // Skip the first 50 lines
+  .skip(50)
+  // Limit result to 150 lines
+  .limit(150)
 ----
 
 For further details, please refer to the `{streams-class}` Javadoc.
