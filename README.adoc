@@ -96,7 +96,26 @@ def result = parser
   .limit(150)
 ----
 
-For further details, please refer to the `{streams-class}` Javadoc.
+=== Kotlin
+
+This library comes with Kotlin extension functions that add operators to Vert.x streams.
+Here's an `io.vertx.core.file.AsyncFile` transformation example:
+
+[source,kotlin]
+----
+// Splits file content into lines
+val parser = RecordParser.newDelimited("\n", asyncFile)
+
+val result = parser
+  // Transform line bytes to String
+  .map(Buffer::toString)
+  // Get the line length
+  .map(String::length)
+  // Skip the first 50 lines
+  .skip(50)
+  // Limit result to 150 lines
+  .limit(150)
+----
 
 == License
 
