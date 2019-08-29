@@ -16,3 +16,8 @@ jobs:
       if: type != pull_request
       script: mvn -B compile
       jdk: openjdk11
+    - stage: deploy
+      name: "Deploy to Sonatype's snapshots repository"
+      jdk: openjdk8
+      if: type != pull_request
+      script: bash .travis.deploy.artifacts.sh
