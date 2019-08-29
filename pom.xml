@@ -7,6 +7,11 @@
   <groupId>io.github.tsegismont</groupId>
   <artifactId>streamutils</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>${project.groupId}:${project.artifactId}</name>
+  <description>A set of utilities for Vert.x streams.</description>
+  <url>https://github.com/tsegismont/streamutils</url>
 
   <properties>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -183,5 +188,36 @@
       </plugin>
     </plugins>
   </build>
+
+  <scm>
+    <connection>scm:git:git://github.com/tsegismont/streamutils.git</connection>
+    <developerConnection>scm:git:ssh://github.com:tsegismont/streamutils.git</developerConnection>
+    <url>http://github.com/tsegismont/streamutils/tree/master</url>
+  </scm>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
+  <licenses>
+    <license>
+      <name>The Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Thomas Segismont</name>
+      <url>https://github.com/tsegismont</url>
+    </developer>
+  </developers>
 
 </project>
