@@ -1,7 +1,7 @@
 = Vert.x Streams utilities
 :group-id: io.github.tsegismont
 :artifact-id: streamutils
-:version: 1.0.0-SNAPSHOT
+:version: 1.0.0
 :streams-class: io.github.tsegismont.streamutils.Streams
 
 image:https://travis-ci.org/tsegismont/streamutils.svg?branch=master["Build Status", link="https://travis-ci.org/tsegismont/streamutils"]
@@ -13,17 +13,6 @@ A set of utilities for Vert.x streams.
 Provide tools for simple transformations of stream data (e.g. `map`, `filter`, `skip`).
 
 For anything beyond simple transformations, consider using a https://www.reactive-streams.org/[Reactive Streams] implementation like https://github.com/ReactiveX/RxJava[RxJava].
-
-== Building
-
-For now it's not on Maven Central so build it first before using:
-
-[source,shell]
-----
-git clone https://github.com/tsegismont/streamutils.git
-cd streamutils
-mvn clean install
-----
 
 == Dependency setup
 
