@@ -2,26 +2,26 @@ language: java
 install: true
 branches:
   only:
-    - master
+  - master
 cache:
   directories:
-    - "$HOME/.m2"
+  - "$HOME/.m2"
 jobs:
   include:
-    - stage: test
-      name: Unit tests - OpenJDK 8
-      script: mvn -B test
-      jdk: openjdk8
-    - name: Compile - OpenJDK 11
-      if: type != pull_request
-      script: mvn -B compile
-      jdk: openjdk11
-    - stage: deploy
-      name: Deploy to Sonatype's snapshots repository
-      jdk: openjdk8
-      if: type != pull_request
-      script: bash .travis.deploy.artifacts.sh
+  - stage: test
+    name: Unit tests - OpenJDK 8
+    script: mvn -B test
+    jdk: openjdk8
+  - name: Compile - OpenJDK 11
+    if: type != pull_request
+    script: mvn -B compile
+    jdk: openjdk11
+  - stage: deploy
+    name: Deploy to Sonatype's snapshots repository
+    jdk: openjdk8
+    if: type != pull_request
+    script: bash .travis.deploy.artifacts.sh
 env:
   global:
-    - secure: MBwvnZI5tS4ZcJAWzgCfo2uhjRbzz19itMYWyf+zEBTY9iyPzH7oX7w+O4SH7c7VoBa0aq4+b5zZa2ubxlpz90HLMXTNTF6dCLx99x+/p9kBBI0DCv0BQhfl7hdi9gIgFnfh+jdCNkFATPXHa1LznC/KUslqETp9evAR1mbjPKgG2RqaKjRnUm/fCimioMXGY3x93EhBJbc9CoRWIoJYvkSkwSgvpfKf8GNH0uwxrU6nCALR3c91mnhKQRh7tTWrTI9tqcjXEJ6btFUwgrETenDVD9h6cjtXb1BoDjWn6pCpogoOKhETFnqi0droTS6QlSNOUBL32zJiDXUG8VBJ8Ve/J2LHlH10EuKIzYBOOc7owwpktSk9lQ/fW+IMGiLagDQiqKlS5UJ+m1Jp9WZYn1F8+tvMULO3DhLIOsAPnFpWzCUJACb0zWgdQE4ofIf/CVvgTHezy/0r1cCId3f0AP1XX+jpUXiCO81b9TKW3RgciTELUG/slEfgp9To2AkQ+7m4iBsqYz231rD5C7e0ziaGYvGP/P+fW/zvgyjRtRnXHfZgnChLeblJCmRfG0kPvR+OlI41pH/ujR/5aWXA5PVTshBH4YOMZjmS3pMv89SttaaEqB7Lbvngi7M3PWe1GJ6Q3dl+3DSBlZuZdX4sAc9+4OOGH0Phxe5SRjF/I+4=
-    - secure: lCsMO8qRrCJGiAj/He5jllMg2OlYxDsjl7VsnbQcOIwG41ucYJbW4QfbKe5vJqJyBV0jcs3zK5TAV/DG2jOazBqIHobAend5Mvsote66lnMKDhlvN8ll+D6N+N1vzdoj9ycBaPcAilsr17nEJ25RFnSlbVyF9sO+0tju0lDjpqYMok/boI5wFMneCNeANJhu80ZB/iF57yIi7jTFPAldsJ7gpecZ54rnqdaQxEBcfZR1JHjVlWXhtJqfCeH8WtriIPicmTg0hnS5HQrfYTLXNUFNuCyJjdNIl+sxGv2wKalUXOG3hOrH83ScsOFCj8/6aeTsCwI/legKM66xyfXealBs1bE9hkHO7zRATwQKAxUxFuxgl/RwiBuz8p8J23Ye9IJwoBiEhGJ7KFaKiGNGDD9z0CCkCi3DGKdLtpbb0cQXFLYO/3QNHsYHU2Pab5fGUywGNgBCVgYWGpQa6h2QeX/KVwNeoeybT8ayxrVtTadBgav5pUCSPfemxTSuwwr5uFZ9c4fPJX4o+9qAtnVtWw3aQAc+JMKWo6mRb1tq0HL0qrW1YCGXosinNWjgsI5iQ4mJX+wvzvpWIq25TeKs2gpTbHmVKsv/I6yHA4RWVV8IKjChxuOnA3GXt4yCQyVRUMJnHJo91RHESsvhNYSoJQ3LtKHZizMLkleV85TvJQA=
+  - secure: dVDMFDVGgEYzfs3g3oXHvieBceMrj66edJMt94FILAlTh9+nwaKiKeKvh9OYh6tXCmf4EwQqwAkrY0GMJCYnVZ1oHF1IVlddl7O0pvNhAx0T1OhqTlluMCl3yhonqNEug7A3vDl5WT/+2R3dCRf79UJYcCe9cXPpz73wyO+UdCBKMU7n/HnwIJrMvMPkR8acNbXWH9OE8Ox+Y9Um9KRWtwwEfGR+Oheh3Dc5RVu0w2wyyReerG/RJ/dmsiSuMpvoi63t8Ht10s4smPqOIwN6fhEKJKdhshVjkKQ79sWY4Go7v4XnqqBuXpDxg4KSf6KuCJEPhEmB47eMUFcf9g1Y1LYencimOxgmiNx2U6H5XIX7kkX1LPV6oPux+nyf/09m5g6O8q0IozJovRq1biL6PdHvYkEVe52Ngo1su8FnsoO/E3xIbNAU0h7dXqgKkLMgfQ9FvIvLrstc0biJAVzvxHIyNGvLyyqdc/jfBFer6bereA/9W5IodAfgHr2QN8+o2vnrZkcv/MyjeFTbvui17dMD0nHnDpvuK8DtGtK2zVfL8Z9gL9tAD8LiRSn8UraZFtBdH6h0tGqpYsPxglJttlkdt8MnwZguAaKnNZZ8c+8uLLUyGAVpwiNbXBmudACFwfCsosxKBDOMsai+y5UCdI/yrbIQW657ov82sf5sCXw=
+  - secure: N2jn4W8fHm+2iSDHDI1vcPMUCG1u1iMMLzB5ZtdqHNm+dMSA2+GDHwt/v/Bm/yJXGq/jBbENmdBM6UPE60ytkwfP0t58SxFYlyUIOb+Dg7+YBktSirEUh9SEid9BAPgPz1oTNb9oritzan1aw7pxoeMLK80MzA8kz00nwoWSTisW7uvmwzZnYiV6JZ8gqokOW/KWSooBfByfLoH8T3pUOEDAOjnGiN+LEUGI9hcNJMZiBe9vzwtpZ8RTkwATixzYBt4WdsxA9FqKt0upb1XFw6gDHo3F+nD3xjYhsP4werwcWpnHOMPqvZqiwr7teXCweMDbZHI9/aqlDGsSbdFPTDPtiAKyAQvGkbHdhfl6xuzxDrEm0NQB4RGFaIXq0WJNE7hRN8AE5vNvHrkUFC0aB+qWZS3q66DNyMI5PteMVVXX7h9K2UOjFsJykuJbOqQKV5bebOn8NRwOyeiJLt0jmef8XDC9vayN7GIbZiFr3IAV0QJCecVj3hFYS9HEJbD3sMuDuWUPNJ9FSQmNtc/bbWEt6PgUGIpASwkC77mkfAYruy/ttmV9zHW4XUOcPocKEdFfO9Rg2mZSivheAjkKbRi9rTLjLzhElpN8QYktQzRzKLj7lURCt0Yzk3DqT51y7b6c1cqV74oUvV9Sv+vAzcOEEz0HXoWZ0orSKr9STCA=
