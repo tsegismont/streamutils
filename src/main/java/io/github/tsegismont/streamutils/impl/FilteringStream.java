@@ -52,7 +52,7 @@ public final class FilteringStream<T> implements ReadStream<T> {
   }
 
   public FilteringStream(ReadStream<T> source, Predicate<T> predicate, Context context) {
-    Objects.requireNonNull(source, "source stream cannot be null");
+    Objects.requireNonNull(source, "Source cannot be null");
     Objects.requireNonNull(predicate, "Filtering function cannot be null");
     Objects.requireNonNull(context, "Context cannot be null");
     this.source = source;

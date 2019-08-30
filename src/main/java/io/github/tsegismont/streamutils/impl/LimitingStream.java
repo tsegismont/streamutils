@@ -36,7 +36,7 @@ public final class LimitingStream<T> implements ReadStream<T> {
   private Handler<Void> endHandler;
 
   public LimitingStream(ReadStream<T> source, long limit) {
-    Objects.requireNonNull(source, "source stream cannot be null");
+    Objects.requireNonNull(source, "Source cannot be null");
     Arguments.require(limit >= 0, "Limit must be positive");
     this.source = source;
     this.limit = limit;

@@ -31,7 +31,7 @@ public final class MappingStream<T, R> implements ReadStream<R> {
   private final Function<T, R> mapping;
 
   public MappingStream(ReadStream<T> source, Function<T, R> mapping) {
-    Objects.requireNonNull(source, "source stream cannot be null");
+    Objects.requireNonNull(source, "Source cannot be null");
     Objects.requireNonNull(mapping, "Mapping function cannot be null");
     this.source = source;
     this.mapping = mapping;

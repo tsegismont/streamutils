@@ -33,7 +33,7 @@ public final class SkippingStream<T> implements ReadStream<T> {
   private long skipped;
 
   public SkippingStream(ReadStream<T> source, long skip) {
-    Objects.requireNonNull(source, "source stream cannot be null");
+    Objects.requireNonNull(source, "Source cannot be null");
     Arguments.require(skip >= 0, "Skip amount must be positive");
     this.source = source;
     this.skip = skip;
