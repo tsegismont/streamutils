@@ -1,7 +1,7 @@
 = Vert.x Streams utilities
 :group-id: io.github.tsegismont
 :artifact-id: streamutils
-:version: 1.0-SNAPSHOT
+:version: 1.0.0-SNAPSHOT
 :streams-class: io.github.tsegismont.streamutils.Streams
 
 image:https://travis-ci.org/tsegismont/streamutils.svg?branch=master["Build Status", link="https://travis-ci.org/tsegismont/streamutils"]
