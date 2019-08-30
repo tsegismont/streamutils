@@ -226,8 +226,9 @@
 
   <scm>
     <connection>scm:git:https://github.com/tsegismont/streamutils.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com:tsegismont/streamutils.git</developerConnection>
-    <url>https://github.com/tsegismont/streamutils/tree/master</url>
+    <developerConnection>scm:git:ssh://git@/github.com/tsegismont/streamutils.git</developerConnection>
+    <url>https://github.com/tsegismont/streamutils</url>
+    <tag>HEAD</tag>
   </scm>
 
   <distributionManagement>
