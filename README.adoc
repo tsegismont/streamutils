@@ -4,9 +4,10 @@
 :version: 1.0.0
 :streams-class: io.github.tsegismont.streamutils.Streams
 
-image:https://travis-ci.org/tsegismont/streamutils.svg?branch=master["Build Status", link="https://travis-ci.org/tsegismont/streamutils"]
-
 A set of utilities for Vert.x streams.
+
+NOTE: This project is no longer maintained. If you need to manipulate streams, consider libraries like https://smallrye.io/smallrye-mutiny/latest/[SmallRye Mutiny] or https://github.com/ReactiveX/RxJava[RxJava].
+In Kotlin, with coroutines, consider utilities like https://kotlinlang.org/docs/channels.html[Channels].
 
 == Purpose
 
